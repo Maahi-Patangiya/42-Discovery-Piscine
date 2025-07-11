@@ -1,0 +1,73 @@
+* { margin:0; padding:0; box-sizing:border-box; }
+body {
+    height: 100vh;
+    overflow: hidden;
+    font-family: 'Cinzel', serif;
+    background-image: url('ghost!.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    }
+      
+
+/* Curtains */
+.curtain {
+  position: fixed;
+  top: 0; bottom: 0;
+  width: 50%;
+  background: #ffffff;
+  z-index: 10;
+}
+.curtain.left  { left: 0; animation: openLeft 2s ease-out forwards; }
+.curtain.right { right:0; animation: openRight 2s ease-out forwards; }
+
+@keyframes openLeft { to { transform: translateX(-100%); } }
+@keyframes openRight{ to { transform: translateX(100%); } }
+
+/* Icons container */
+.icons-container {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
+  opacity: 0;
+  animation: fadeInIcons 1s ease-in 2s forwards;
+}
+
+/* Fade in icons after curtains open */
+@keyframes fadeInIcons {
+  to { opacity: 1; }
+}
+
+/* Icon link & image */
+.icon-link {
+  text-align:center;
+  color:#fff;
+  text-decoration:none;
+}
+
+
+.icon {
+    max-height: 200px;
+    max-width: 2000px;
+    width: auto;
+    height: auto;
+    transition: transform 0.3s ease;
+    border: 2px solid white;
+    border-radius: 8px; /* Optional: rounds corners slightly */
+    padding: 4px;       /* Optional: adds spacing inside border */
+    background-color: rgba(255, 255, 255, 0.05); /* subtle background glow */
+  }
+
+/* Hover enlarge */
+.icon-link:hover .icon {
+  transform: scale(1.3);
+}
+
+/* Label under icon */
+.label {
+  margin-top:12px;
+  font-size:1.2rem;
+}
